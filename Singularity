@@ -1,5 +1,5 @@
 Bootstrap: docker
-From: ablogainza/masif:latest
+From: hagw/masif:latest
 
 %setup
     apt-get -y update
