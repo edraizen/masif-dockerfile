@@ -37,13 +37,13 @@ RUN python2.7 get-pip.py
 # INSTALL PDB2PQR
 WORKDIR /install/apbs-pdb2pqr/pdb2pqr
 RUN git checkout b3bfeec
-RUN python2.7 scons/scons.py PREFIX=/usr/bin/pdb2pqr install
+RUN python2.7 scons/scons.py PREFIX=/usr/local/bin/pdb2pqr install
 
 # Setup environment variables 
 ENV MSMS_BIN /usr/local/bin/msms
 ENV APBS_BIN /usr/local/bin/apbs
 ENV MULTIVALUE_BIN /usr/local/share/apbs/tools/bin/multivalue
-ENV PDB2PQR_BIN /root/pdb2pqr/pdb2pqr.py
+ENV PDB2PQR_BIN /usr/local/bin/pdb2pqr/pdb2pqr.py
 
 # DOWNLOAD reduce (for protonation)
 WORKDIR /install
