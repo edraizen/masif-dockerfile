@@ -24,6 +24,7 @@ RUN mkdir /install
 WORKDIR /install
 RUN git clone https://github.com/Electrostatics/apbs-pdb2pqr
 WORKDIR /install/apbs-pdb2pqr
+RUN git checkout 6b5f05d6e330f607fe37609d80d0eef4ccedfaf2
 RUN git submodule init
 RUN git submodule update
 RUN cmake -DGET_MSMS=ON apbs
@@ -36,7 +37,7 @@ RUN python2.7 get-pip.py
 # INSTALL PDB2PQR
 WORKDIR /install/apbs-pdb2pqr/pdb2pqr
 RUN git checkout b3bfeec
-RUN python2.7 scons/scons.py install
+RUN python2.7 scons/scons.py PREFIX=/usr/bin/pdb2pqr install
 
 # Setup environment variables 
 ENV MSMS_BIN /usr/local/bin/msms
